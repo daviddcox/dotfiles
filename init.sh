@@ -6,6 +6,6 @@ DOTFILES_DIR="$HOME/.dot-files"
 dotfiles=(.bashrc .vimrc)
 
 for file in "${dotfiles[@]}"; do
-    ln -s -f ~/.dot-files/.$file ~/.$file
+    ln -sf "$DOTFILES_DIR/.$file" "$HOME/.$file"
 done
 
