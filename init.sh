@@ -6,11 +6,6 @@ DOTFILES_DIR="$HOME/.dot-files"
 dotfiles=(.bashrc .vimrc)
 
 for file in "${dotfiles[@]}"; do
-    if [ -e "$HOME/$file" ]; then
-        echo "$file already exists. Skipping..."
-    else
-        ln -s "$DOTFILES_DIR/$file" "$HOME/$file"
-        echo "Created symlink for $file"
-    fi
+    ln -s -f ~/.dot-files/.$file ~/.$file
 done
 
