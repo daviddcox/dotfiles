@@ -1,6 +1,6 @@
 #!/bin/bash
 
-DOTFILES_DIR="$HOME/.dot-files"
+DOTFILES_DIR="$HOME/dotfiles"
 
 # List of dotfiles to symlink
 dotfiles=(.bashrc .vimrc)
