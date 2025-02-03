@@ -3,7 +3,7 @@
 DOTFILES_DIR="$HOME/dotfiles"
 
 # List of dotfiles to symlink
-dotfiles=(.bashrc .vimrc)
+dotfiles=(.bashrc .vimrc .tmux.conf)
 
 for file in "${dotfiles[@]}"; do
     ln -sf "$DOTFILES_DIR/$file" "$HOME/$file"
