@@ -9,6 +9,11 @@ Plug 'junegunn/fzf.vim'
 
 call plug#end()
 
+" Configure linters for specific languages (for example, Python with flake8)
+let g:ale_linters = {
+\   'python': ['flake8'],
+\}
+
 " display line numbers on the sidebar
 set number
 
