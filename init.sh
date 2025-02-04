@@ -19,3 +19,12 @@ fi
 mkdir -p ~/.vim/colors
 cp "$GRUVBOX_DIR/colors/gruvbox.vim" ~/.vim/colors/
 
+# Install Vim-Plug
+if [ ! -f "$HOME/.vim/autoload/plug.vim" ]; then
+    echo "Installing Vim-Plug..."
+    curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
+        https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+fi
+
+echo "Setup complete!"
+
