@@ -4,7 +4,8 @@ call plug#begin('~/.vim/plugged')
 " Add your plugins here
 Plug 'preservim/nerdtree'        " File explorer
 Plug 'dense-analysis/ale'        " Asynchronous linting
-Plug 'junegunn/fzf', { 'do': ':fzf#install()' }  " Fuzzy finder
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'junegunn/fzf.vim'
 
 call plug#end()
 
