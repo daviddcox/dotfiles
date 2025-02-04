@@ -1,3 +1,13 @@
+" Plugins
+call plug#begin('~/.vim/plugged')
+
+" Add your plugins here
+Plug 'preservim/nerdtree'        " File explorer
+Plug 'dense-analysis/ale'        " Asynchronous linting
+Plug 'junegunn/fzf', { 'do': ':fzf#install()' }  " Fuzzy finder
+
+call plug#end()
+
 " display line numbers on the sidebar
 set number
 
@@ -59,3 +69,6 @@ set relativenumber
 set t_Co=256
 
 set cursorline
+
+" Open NERDTree
+autocmd vimenter * NERDTree
