@@ -6,6 +6,7 @@ Plug 'preservim/nerdtree'        " File explorer
 Plug 'dense-analysis/ale'        " Asynchronous linting
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
+Plug 'dracula/vim', { 'as': 'dracula' }
 
 call plug#end()
 
@@ -66,12 +67,7 @@ filetype on
 syntax on
 
 set termguicolors
-colorscheme gruvbox
-set background=dark
-let g:gruvbox_bold = 1
-let g:gruvbox_italic = 1
-let g:gruvbox_contrast_dark = 'hard'
-let g:gruvbox_invert_selection = 0
+colorscheme dracula
 
 set relativenumber
 
