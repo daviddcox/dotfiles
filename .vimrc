@@ -9,6 +9,13 @@ Plug 'junegunn/fzf.vim'
 
 call plug#end()
 
+let g:ale_linters = {
+  \   'c': ['clang', 'gcc'],
+  \}
+
+let g:ale_lint_on_text_changed = 'always'
+let g:ale_lint_on_insert_leave = 1
+
 " display line numbers on the sidebar
 set number
 
@@ -70,6 +77,3 @@ set relativenumber
 set t_Co=256
 
 set cursorline
-
-" Open NERDTree
-autocmd vimenter * NERDTree
