@@ -11,6 +11,7 @@ call plug#end()
 
 let g:ale_linters = {
   \   'c': ['clang', 'gcc'],
+  \   'python': ['flake8'],
   \}
 
 let g:ale_lint_on_text_changed = 'always'
