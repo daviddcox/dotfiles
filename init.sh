@@ -30,5 +30,8 @@ cd ~/.fzf
 ./install --all
 cd -
 
+# Install dracula for tmux
+git clone https://github.com/dracula/tmux.git ~/.tmux/dracula
+
 echo "Setup complete!"
 
