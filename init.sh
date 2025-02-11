@@ -1,11 +1,11 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 # List of dotfiles to symlink
 DOTFILES_DIR="$HOME/dotfiles"
-dotfiles=(.bashrc .vimrc .tmux.conf)
+dotfiles=(bashrc vimrc tmux.conf)
 
 for file in "${dotfiles[@]}"; do
-    ln -sf "$DOTFILES_DIR/$file" "$HOME/$file"
+    ln -sf "$DOTFILES_DIR/$file" "$HOME/.$file"
 done
 
 # Download and install Gruvbox theme for Vim
