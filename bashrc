@@ -4,6 +4,8 @@ export PATH=$PATH:~cs240/bin
 export PATH=${PATH}:/p/xinu/bin
 export PATH="$HOME/.fzf/bin:$PATH"
 
+export MANPAGER="vim -c 'set ft=man'"
+
 # Basic aliases to have common ls commands and add colors
 
 alias ls="ls --color=auto"
