@@ -74,3 +74,8 @@ set relativenumber
 set t_Co=256
 
 set cursorline
+
+nnoremap ,f :Files<CR>
+nnoremap ,b :Buffers<CR>
+nnoremap ,s :nohlsearch<CR>
+nnoremap ,t :NERDTree<CR>
