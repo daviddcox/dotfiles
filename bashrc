@@ -16,6 +16,7 @@ alias ll="ls -l"
 
 alias vim='vimx'
 alias weather="$HOME/dotfiles/weather.sh"
+alias moon="$HOME/dotfiles/moon.sh"
 
 # Strip permissions from group and others when creating new files
 

@@ -8,30 +8,35 @@ for file in "${dotfiles[@]}"; do
     ln -sf "$DOTFILES_DIR/$file" "$HOME/.$file"
 done
 
-# Download and install Gruvbox theme for Vim
-GRUVBOX_DIR="$HOME/.vim/pack/default/start/gruvbox"
-if [ ! -d "$GRUVBOX_DIR" ]; then
-    git clone https://github.com/morhetz/gruvbox.git "$GRUVBOX_DIR"
-fi
-mkdir -p ~/.vim/colors
-cp "$GRUVBOX_DIR/colors/gruvbox.vim" ~/.vim/colors/
+# Neovim configuration setup
+mkdir -p "$HOME/.config/nvim"
+ln -sf "$DOTFILES_DIR/init.vim" "$HOME/.config/nvim/init.vim"
 
 # Install Vim-Plug
 if [ ! -f "$HOME/.vim/autoload/plug.vim" ]; then
-    echo "Installing Vim-Plug..."
+    echo "Installing Vim-Plug for Vim..."
     curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
         https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 fi
 
-# Install fzf (fuzzy finder)
-echo "Installing fzf..."
-git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
-cd ~/.fzf
-./install --all
-cd -
+# Install Vim-Plug for Neovim
+if [ ! -f "$HOME/.config/nvim/autoload/plug.vim" ]; then
+    echo "Installing Vim-Plug for Neovim..."
+    curl -fLo ~/.config/nvim/autoload/plug.vim --create-dirs \
+        https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+fi
 
-# Install dracula for tmux
-git clone https://github.com/dracula/tmux.git ~/.tmux/dracula
+# Install fzf (fuzzy finder)
+if [ ! -d "$HOME/.fzf" ]; then
+    echo "Installing fzf..."
+    git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
+    ~/.fzf/install --all
+fi
+
+# Install Dracula theme for tmux
+if [ ! -d "$HOME/.tmux/dracula" ]; then
+    echo "Installing Dracula theme for tmux..."
+    git clone https://github.com/dracula/tmux.git ~/.tmux/dracula
+fi
 
 echo "Setup complete!"
-
