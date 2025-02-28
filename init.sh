@@ -39,4 +39,10 @@ if [ ! -d "$HOME/.tmux/dracula" ]; then
     git clone https://github.com/dracula/tmux.git ~/.tmux/dracula
 fi
 
+# Install tmp for tmux
+if [ ! -d "$HOME/.tmux/plugins/tpm" ]; then
+    echo "Installing tpm for tmux..."
+    git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+fi
+
 echo "Setup complete!"
