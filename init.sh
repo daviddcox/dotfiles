@@ -10,7 +10,7 @@ done
 
 # Neovim configuration setup
 mkdir -p "$HOME/.config/nvim"
-ln -sf "$DOTFILES_DIR/init.vim" "$HOME/.config/nvim/init.vim"
+ln -sf "$DOTFILES_DIR/init.lua" "$HOME/.config/nvim/init.lua"
 
 # Install Vim-Plug
 if [ ! -f "$HOME/.vim/autoload/plug.vim" ]; then
