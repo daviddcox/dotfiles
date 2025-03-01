@@ -33,7 +33,7 @@ vim.api.nvim_set_keymap('n', '<leader>|', ':vsplit<CR>', { noremap = true, silen
 vim.api.nvim_set_keymap('n', '<leader>-', ':split<CR>', { noremap = true, silent = true })
 vim.api.nvim_set_keymap('n', '<leader>j', ':bp<CR>', { noremap = true, silent = true })
 vim.api.nvim_set_keymap('n', '<leader>k', ':bn<CR>', { noremap = true, silent = true })
-vim.api.nvim_set_keymap('n', '<leader>l', ':b#<CR>', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '<leader>u', ':b#<CR>', { noremap = true, silent = true })
 
 -- Plugin management using lazy.nvim
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
