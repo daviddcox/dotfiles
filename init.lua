@@ -34,6 +34,7 @@ vim.api.nvim_set_keymap('n', '<leader>-', ':split<CR>', { noremap = true, silent
 vim.api.nvim_set_keymap('n', '<leader>j', ':bp<CR>', { noremap = true, silent = true })
 vim.api.nvim_set_keymap('n', '<leader>k', ':bn<CR>', { noremap = true, silent = true })
 vim.api.nvim_set_keymap('n', '<leader>u', ':b#<CR>', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '<leader>r', ':NERDTreeRefreshRoot<CR>', { noremap = true, silent = true })
 
 -- Plugin management using lazy.nvim
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
@@ -49,6 +50,7 @@ require("lazy").setup({
   { "morhetz/gruvbox" },
   { "preservim/nerdtree", config = function()
       vim.api.nvim_set_keymap('n', '<leader>e', ':NERDTreeToggle<CR>', { noremap = true, silent = true })
+      vim.api.nvim_set_keymap('n', '<leader>t', ':NERDTreeFind<CR>', { noremap = true, silent = true })
     end
   },
   { "vim-airline/vim-airline" },

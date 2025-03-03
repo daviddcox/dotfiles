@@ -12,6 +12,10 @@ done
 mkdir -p "$HOME/.config/nvim"
 ln -sf "$DOTFILES_DIR/init.lua" "$HOME/.config/nvim/init.lua"
 
+# Hyprland config
+mkdir -p "$HOME/.config/hypr"
+ln -sf "$DOTFILES_DIR/hyprland.conf" "$HOME/.config/hypr/hyprland.conf"
+
 # Install Vim-Plug
 if [ ! -f "$HOME/.vim/autoload/plug.vim" ]; then
     echo "Installing Vim-Plug for Vim..."
