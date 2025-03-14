@@ -78,5 +78,9 @@ require("lazy").setup({
   },
 })
 
+vim.g.gruvbox_transparent_bg = 1
+
+vim.opt.clipboard = ""
+
 -- Set theme
 vim.cmd("colorscheme gruvbox")
