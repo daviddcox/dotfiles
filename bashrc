@@ -15,6 +15,7 @@ alias ll="ls -l"
 alias connect-404='nmcli connection up "Faith 404 - 5 GHz" passwd-file ~/.404_wifi.txt'
 
 alias vim='vimx'
+alias wezterm='flatpak run org.wezfurlong.wezterm'
 alias weather="$HOME/dotfiles/weather.sh"
 alias moon="$HOME/dotfiles/moon.sh"
 

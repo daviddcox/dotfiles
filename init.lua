@@ -20,6 +20,8 @@ vim.opt.termguicolors = true      -- Enable true color support
 vim.opt.clipboard:append("unnamedplus")
 
 -- Keybindings
+vim.keymap.set('n', 'n', 'nzzzv', { noremap = true, silent = true })
+vim.keymap.set('n', 'N', 'Nzzzv', { noremap = true, silent = true })
 vim.api.nvim_set_keymap('n', '<leader>w', ':w<CR>', { noremap = true, silent = true })
 vim.api.nvim_set_keymap('n', '<leader>q', ':q<CR>', { noremap = true, silent = true })
 vim.api.nvim_set_keymap('n', '<leader>a', ':qa<CR>', { noremap = true, silent = true })
