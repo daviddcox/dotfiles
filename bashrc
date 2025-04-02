@@ -14,6 +14,7 @@ alias ll="ls -l"
 
 alias connect-404='nmcli connection up "Faith 404 - 5 GHz" passwd-file ~/.404_wifi.txt'
 
+alias on='source venv/bin/activate'
 alias vim='vimx'
 alias wezterm='flatpak run org.wezfurlong.wezterm'
 alias weather="$HOME/dotfiles/weather.sh"
