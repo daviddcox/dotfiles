@@ -38,8 +38,8 @@ vim.api.nvim_set_keymap('n', '<leader>r', ':NERDTreeRefreshRoot<CR>', { noremap 
 vim.api.nvim_set_keymap('n', '<leader>j', ':cprev<CR>', { noremap = true, silent = true })
 vim.api.nvim_set_keymap('n', '<leader>k', ':cnext<CR>', { noremap = true, silent = true })
 
-vim.api.nvim_set_keymap('n', '<leader>s', [[:lua Save()<CR>]], { noremap = true, silent = true })
-function Save()
+vim.api.nvim_set_keymap('n', '<leader>s', [[:lua SaveSession()<CR>]], { noremap = true, silent = true })
+function SaveSession()
   vim.fn.jobstart("ctags -R -L <(git ls-files)", {
     stdout_buffered = true,
     stderr_buffered = true,
@@ -47,7 +47,6 @@ function Save()
   })
   vim.cmd("mks!")
 end
-
 
 -- Plugin management using lazy.nvim
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
@@ -71,18 +70,42 @@ require("lazy").setup({
     end
   },
 	{ "junegunn/fzf.vim" },
-  { "neovim/nvim-lspconfig", config = function()
-      -- Configure Python LSP using Pyright
-			require('lspconfig').pyright.setup{}
-      require('lspconfig').ts_ls.setup{}
+	{
+    "williamboman/mason.nvim",
+    config = true
+  },
+  {
+    "williamboman/mason-lspconfig.nvim",
+    config = function()
+      require("mason").setup()
+      require("mason-lspconfig").setup({
+        ensure_installed = { "lua_ls", "pyright", "ts_ls" },
+      })
+    end
+  },
+	{
+    "neovim/nvim-lspconfig",
+    config = function()
+      local lspconfig = require("lspconfig")
+      lspconfig.pyright.setup({})
+      lspconfig.ts_ls.setup({})
+      lspconfig.lua_ls.setup({
+        settings = {
+          Lua = {
+            diagnostics = {
+              globals = { "vim" },
+            }
+          }
+        }
+      })
     end
   },
   { "nvim-treesitter/nvim-treesitter", build = ":TSUpdate", config = function()
       require("nvim-treesitter.configs").setup({
           -- Ensure the Python and TypeScript parsers are installed
-          ensure_installed = { "python", "typescript", "markdown", "markdown_inline" },
+          ensure_installed = { "python", "typescript", "lua", "markdown", "markdown_inline" },
           highlight = {
-              enable = true, -- false will disable the whole extension
+              enable = true,
           },
       })
     end
@@ -97,19 +120,11 @@ require("lazy").setup({
 		"folke/tokyonight.nvim",
 		lazy = false,
 		priority = 1000,
-		opts = {},
+		opts = {}
 	}
 })
-
-function SetPrettierFrontend()
-  local root = vim.fn.getcwd()
-  vim.g["prettier#exec_cmd_path"] = root .. "/frontend/node_modules/.bin/prettier"
-  vim.g["prettier#config#config_path"] = root .. "/frontend/.prettierrc"
-end
-
-vim.g.gruvbox_transparent_bg = 1
 
 vim.opt.clipboard = ""
 
 -- Set theme
-vim.cmd("colorscheme tokyonight-moon")
+vim.cmd("colorscheme tokyonight-night")

@@ -12,6 +12,9 @@ alias ls="ls --color=auto"
 alias la="ls -a"
 alias ll="ls -l"
 
+alias facd='cd "$(find ~ -type d | fzf)"'
+alias fcd='cd "$(find . -type d | fzf)"'
+
 alias connect-404='nmcli connection up "Faith 404 - 5 GHz" passwd-file ~/.404_wifi.txt'
 
 alias on='source venv/bin/activate'
