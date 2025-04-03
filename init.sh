@@ -37,12 +37,6 @@ if [ ! -d "$HOME/.fzf" ]; then
     ~/.fzf/install --all
 fi
 
-# Install Dracula theme for tmux
-if [ ! -d "$HOME/.tmux/dracula" ]; then
-    echo "Installing Dracula theme for tmux..."
-    git clone https://github.com/dracula/tmux.git ~/.tmux/dracula
-fi
-
 # Install tmp for tmux
 if [ ! -d "$HOME/.tmux/plugins/tpm" ]; then
     echo "Installing tpm for tmux..."
