@@ -48,6 +48,11 @@ function SaveSession()
   vim.cmd("mks!")
 end
 
+vim.api.nvim_create_autocmd("BufWritePre", {
+  pattern = { "*.js", "*.ts", "*.jsx", "*.tsx", "*.json", "*.css", "*.html", "*.md" },
+  command = "Prettier",
+})
+
 -- Plugin management using lazy.nvim
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 if not vim.loop.fs_stat(lazypath) then

@@ -31,3 +31,10 @@ export TERM="xterm-256color"
 PS1='\[\033[38;5;33m\]\u\[\033[0m\]@\[\033[38;5;250m\]\h\[\033[0m\]:\[\033[38;5;39m\]\w\[\033[0m\] \$ '
 
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
+
+fde() {
+  local name
+  name=$(docker ps --format "{{.Names}}" | fzf --prompt="Select container: ")
+  [[ -n "$name" ]] && docker exec -it "$name" /bin/bash
+}
+
