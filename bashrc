@@ -4,6 +4,7 @@ export PATH=$PATH:~cs240/bin
 export PATH=${PATH}:/p/xinu/bin
 export PATH="$HOME/.fzf/bin:$PATH"
 export PATH="$HOME/.npm-global/bin:$PATH"
+export PATH="$HOME/.local/bin:$PATH"
 
 export MANPAGER='nvim +Man!'
 
