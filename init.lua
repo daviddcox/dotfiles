@@ -37,6 +37,8 @@ vim.api.nvim_set_keymap('n', '<leader>u', ':b#<CR>', { noremap = true, silent = 
 vim.api.nvim_set_keymap('n', '<leader>r', ':NERDTreeRefreshRoot<CR>', { noremap = true, silent = true })
 vim.api.nvim_set_keymap('n', '<leader>j', ':cprev<CR>', { noremap = true, silent = true })
 vim.api.nvim_set_keymap('n', '<leader>k', ':cnext<CR>', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '<leader>os', ':Obsession<CR>', { noremap = true, silent = true })  -- start
+vim.api.nvim_set_keymap('n', '<leader>ox', ':Obsession!<CR>', { noremap = true, silent = true })  -- stop
 
 vim.api.nvim_set_keymap('n', '<leader>s', [[:lua SaveSession()<CR>]], { noremap = true, silent = true })
 function SaveSession()
@@ -49,7 +51,7 @@ function SaveSession()
 end
 
 vim.api.nvim_create_autocmd("BufWritePre", {
-  pattern = { "*.js", "*.ts", "*.jsx", "*.tsx", "*.json", "*.css", "*.html", "*.md" },
+  pattern = { "*.js", "*.ts", "*.jsx", "*.tsx", "*.json", "*.css", "*.html" },
   command = "Prettier",
 })
 
@@ -69,11 +71,12 @@ require("lazy").setup({
       vim.api.nvim_set_keymap('n', '<leader>t', ':NERDTreeFind<CR>', { noremap = true, silent = true })
     end
   },
-  { "vim-airline/vim-airline" },
   { "junegunn/fzf", build = function()
       vim.fn.system("~/.fzf/install --all")
     end
   },
+	{ "tpope/vim-obsession" },
+	{ "vim-airline/vim-airline" },
 	{ "junegunn/fzf.vim" },
 	{
     "williamboman/mason.nvim",
