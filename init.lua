@@ -25,9 +25,6 @@ vim.keymap.set('n', 'N', 'Nzzzv', { noremap = true, silent = true })
 vim.api.nvim_set_keymap('n', '<leader>x', ':x<CR>', { noremap = true, silent = true })
 vim.api.nvim_set_keymap('n', '<leader>w', ':w<CR>', { noremap = true, silent = true })
 vim.api.nvim_set_keymap('n', '<leader>h', ':noh<CR>', { noremap = true, silent = true })
-vim.api.nvim_set_keymap('n', '<leader>pf', ':Files<CR>', { noremap = true, silent = true })
-vim.api.nvim_set_keymap('n', '<leader>ps', ':GFiles<CR>', { noremap = true, silent = true })
-vim.api.nvim_set_keymap('n', '<leader>b', ':Buffers<CR>', { noremap = true, silent = true })
 vim.api.nvim_set_keymap('n', '<leader>|', ':vsplit<CR>', { noremap = true, silent = true })
 vim.api.nvim_set_keymap('n', '<leader>-', ':split<CR>', { noremap = true, silent = true })
 vim.api.nvim_set_keymap('n', '<leader>u', ':b#<CR>', { noremap = true, silent = true })
@@ -38,6 +35,18 @@ vim.api.nvim_set_keymap('n', '<leader>cp', ':cprev<CR>', { noremap = true, silen
 vim.api.nvim_set_keymap('n', '<leader>cn', ':cnext<CR>', { noremap = true, silent = true })
 vim.api.nvim_set_keymap('n', '<leader>os', ':Obsession<CR>', { noremap = true, silent = true })  -- start
 vim.api.nvim_set_keymap('n', '<leader>ox', ':Obsession!<CR>', { noremap = true, silent = true })  -- stop
+vim.api.nvim_set_keymap('n', '<leader>pf', ':Telescope find_files<CR>', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '<C-p>', ':Telescope git_files<CR>', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '<leader>pb', ':Telescope buffers<CR>', { noremap = true, silent = true })
+vim.keymap.set('n', '<leader>pe',
+function() require('telescope.builtin').diagnostics({ bufnr = 0 }) end,
+  { desc = "Telescope buffer diagnostics" }
+)
+vim.keymap.set('n', '<leader>ps',
+function()
+  require("telescope.builtin").grep_string({ search = vim.fn.input("Grep > ") })
+end, { noremap = true, silent = true })
+
 
 vim.api.nvim_set_keymap('n', '<leader>s', [[:lua SaveSession()<CR>]], { noremap = true, silent = true })
 function SaveSession()
@@ -66,10 +75,7 @@ vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup({
   { "preservim/nerdtree" },
-  { "junegunn/fzf", build = function()
-      vim.fn.system("~/.fzf/install --all")
-    end
-  },
+	{ 'nvim-telescope/telescope.nvim', tag = '0.1.8' },
 	{ "tpope/vim-obsession" },
 	{ "vim-airline/vim-airline" },
 	{ "junegunn/fzf.vim" },
