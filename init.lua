@@ -22,21 +22,20 @@ vim.opt.clipboard:append("unnamedplus")
 -- Keybindings
 vim.keymap.set('n', 'n', 'nzzzv', { noremap = true, silent = true })
 vim.keymap.set('n', 'N', 'Nzzzv', { noremap = true, silent = true })
-vim.api.nvim_set_keymap('n', '<leader>q', ':q<CR>', { noremap = true, silent = true })
-vim.api.nvim_set_keymap('n', '<leader>a', ':qa<CR>', { noremap = true, silent = true })
 vim.api.nvim_set_keymap('n', '<leader>x', ':x<CR>', { noremap = true, silent = true })
 vim.api.nvim_set_keymap('n', '<leader>w', ':w<CR>', { noremap = true, silent = true })
-vim.api.nvim_set_keymap('n', '<leader>l', ':source Session.vim<CR>', { noremap = true, silent = true })
 vim.api.nvim_set_keymap('n', '<leader>h', ':noh<CR>', { noremap = true, silent = true })
-vim.api.nvim_set_keymap('n', '<leader>f', ':Files<CR>', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '<leader>pf', ':Files<CR>', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '<leader>ps', ':GFiles<CR>', { noremap = true, silent = true })
 vim.api.nvim_set_keymap('n', '<leader>b', ':Buffers<CR>', { noremap = true, silent = true })
-vim.api.nvim_set_keymap('n', '<leader>p', ':Prettier<CR>', { noremap = true, silent = true })
 vim.api.nvim_set_keymap('n', '<leader>|', ':vsplit<CR>', { noremap = true, silent = true })
 vim.api.nvim_set_keymap('n', '<leader>-', ':split<CR>', { noremap = true, silent = true })
 vim.api.nvim_set_keymap('n', '<leader>u', ':b#<CR>', { noremap = true, silent = true })
-vim.api.nvim_set_keymap('n', '<leader>r', ':NERDTreeRefreshRoot<CR>', { noremap = true, silent = true })
-vim.api.nvim_set_keymap('n', '<leader>j', ':cprev<CR>', { noremap = true, silent = true })
-vim.api.nvim_set_keymap('n', '<leader>k', ':cnext<CR>', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '<leader>tr', ':NERDTreeRefreshRoot<CR>', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '<leader>te', ':NERDTreeToggle<CR>', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '<leader>tt', ':NERDTreeFind<CR>', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '<leader>cp', ':cprev<CR>', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '<leader>cn', ':cnext<CR>', { noremap = true, silent = true })
 vim.api.nvim_set_keymap('n', '<leader>os', ':Obsession<CR>', { noremap = true, silent = true })  -- start
 vim.api.nvim_set_keymap('n', '<leader>ox', ':Obsession!<CR>', { noremap = true, silent = true })  -- stop
 
@@ -66,11 +65,7 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup({
-  { "preservim/nerdtree", config = function()
-      vim.api.nvim_set_keymap('n', '<leader>e', ':NERDTreeToggle<CR>', { noremap = true, silent = true })
-      vim.api.nvim_set_keymap('n', '<leader>t', ':NERDTreeFind<CR>', { noremap = true, silent = true })
-    end
-  },
+  { "preservim/nerdtree" },
   { "junegunn/fzf", build = function()
       vim.fn.system("~/.fzf/install --all")
     end
