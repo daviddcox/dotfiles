@@ -34,26 +34,26 @@ end
 vim.g.mapleader = " "
 
 -- Keybindings
-vim.keymap.set('n', 'n', 'nzzzv', { noremap = true, silent = true })
-vim.keymap.set('n', 'N', 'Nzzzv', { noremap = true, silent = true })
-vim.keymap.set('n', '<leader>x', ':x<CR>', { noremap = true, silent = true })
-vim.keymap.set('n', '<leader>w', ':w<CR>', { noremap = true, silent = true })
-vim.keymap.set('n', '<leader>h', ':noh<CR>', { noremap = true, silent = true })
-vim.keymap.set('n', '<leader>|', ':vsplit<CR>', { noremap = true, silent = true })
-vim.keymap.set('n', '<leader>-', ':split<CR>', { noremap = true, silent = true })
-vim.keymap.set('n', '<leader>u', ':b#<CR>', { noremap = true, silent = true })
-vim.keymap.set('n', '<leader>tr', ':NERDTreeRefreshRoot<CR>', { noremap = true, silent = true })
-vim.keymap.set('n', '<leader>te', ':NERDTreeToggle<CR>', { noremap = true, silent = true })
-vim.keymap.set('n', '<leader>tt', ':NERDTreeFind<CR>', { noremap = true, silent = true })
-vim.keymap.set('n', '<leader>cp', ':cprev<CR>', { noremap = true, silent = true })
-vim.keymap.set('n', '<leader>cn', ':cnext<CR>', { noremap = true, silent = true })
-vim.keymap.set('n', '<leader>os', ':Obsession<CR>', { noremap = true, silent = true })
-vim.keymap.set('n', '<leader>ox', ':Obsession!<CR>', { noremap = true, silent = true })
-vim.keymap.set('n', '<leader>pf', ':Telescope find_files<CR>', { noremap = true, silent = true })
-vim.keymap.set('n', '<C-p>', ':Telescope git_files<CR>', { noremap = true, silent = true })
-vim.keymap.set('n', '<leader>pb', ':Telescope buffers<CR>', { noremap = true, silent = true })
-vim.keymap.set('n', '<leader>pe', ErrorSearch, { noremap = true, silent = true })
-vim.keymap.set('n', '<leader>ps', GrepSearch, { noremap = true, silent = true })
+vim.keymap.set('n', 'n', 'nzzzv')
+vim.keymap.set('n', 'N', 'Nzzzv')
+vim.keymap.set('n', '<leader>x', ':x<CR>')
+vim.keymap.set('n', '<leader>w', ':w<CR>')
+vim.keymap.set('n', '<leader>h', ':noh<CR>')
+vim.keymap.set('n', '<leader>|', ':vsplit<CR>')
+vim.keymap.set('n', '<leader>-', ':split<CR>')
+vim.keymap.set('n', '<leader>u', ':b#<CR>')
+vim.keymap.set('n', '<leader>tr', ':NERDTreeRefreshRoot<CR>')
+vim.keymap.set('n', '<leader>te', ':NERDTreeToggle<CR>')
+vim.keymap.set('n', '<leader>tt', ':NERDTreeFind<CR>')
+vim.keymap.set('n', '<leader>cp', ':cprev<CR>')
+vim.keymap.set('n', '<leader>cn', ':cnext<CR>')
+vim.keymap.set('n', '<leader>os', ':SessionToggleAutoSave<CR>')
+vim.keymap.set('n', '<leader>om', ':SessionSearch<CR>')
+vim.keymap.set('n', '<leader>pf', ':Telescope find_files<CR>')
+vim.keymap.set('n', '<C-p>', ':Telescope git_files<CR>')
+vim.keymap.set('n', '<leader>pb', ':Telescope buffers<CR>')
+vim.keymap.set('n', '<leader>pe', ErrorSearch)
+vim.keymap.set('n', '<leader>ps', GrepSearch)
 
 -- Prettier on save
 vim.api.nvim_create_autocmd("BufWritePre", {
@@ -65,4 +65,4 @@ vim.api.nvim_create_autocmd("BufWritePre", {
 require("config.lazy")
 
 -- Set theme
-vim.cmd("colorscheme tokyonight-night")
+vim.cmd("colorscheme kanagawa")
