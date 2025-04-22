@@ -65,4 +65,4 @@ vim.api.nvim_create_autocmd("BufWritePre", {
 require("config.lazy")
 
 -- Set theme
-vim.cmd("colorscheme tokyonight-night")
+vim.cmd("colorscheme kanagawa")
