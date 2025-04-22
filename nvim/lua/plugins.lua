@@ -1,8 +1,21 @@
 return {
   { "preservim/nerdtree" },
 	{ 'nvim-telescope/telescope.nvim', tag = '0.1.8' },
-	{ "tpope/vim-obsession" },
-	{ "vim-airline/vim-airline" },
+	{
+		'rmagatti/auto-session',
+		lazy = false,
+		---@module "auto-session"
+		opts = {
+			suppressed_dirs = { '~/', '~/Projects', '~/Downloads', '/' },
+		}
+	},
+	{
+    'nvim-lualine/lualine.nvim',
+    dependencies = { 'nvim-tree/nvim-web-devicons' },
+		config = function() require('lualine').setup({
+				options = { theme = 'onedark' },
+			}) end,
+	},
 	{
     "williamboman/mason.nvim",
     config = true
