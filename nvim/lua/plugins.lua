@@ -44,11 +44,6 @@ return {
       })
     end
   },
-	{
-    'MeanderingProgrammer/render-markdown.nvim',
-    dependencies = { 'nvim-treesitter/nvim-treesitter' },
-    opts = {},
-	},
 	{ "prettier/vim-prettier", build = "npm install"},
 	{
 		"folke/tokyonight.nvim",
