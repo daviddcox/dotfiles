@@ -7,20 +7,11 @@ vim.opt.autoindent = true         -- Auto-indent new lines
 vim.opt.smartindent = true        -- Smart indentation
 vim.opt.ignorecase = true         -- Case insensitive searching
 vim.opt.smartcase = true          -- Case-sensitive if uppercase letters are used
-vim.opt.cursorline = false         -- Highlight current line
+vim.opt.cursorline = true         -- Highlight current line
 vim.opt.wrap = true               -- Enable line wrapping
 vim.opt.undofile = true           -- Persistent undo
 vim.opt.termguicolors = true      -- Enable true color support
 vim.opt.path:append("**")
-
--- Enable Tree-sitter based folds
-vim.opt.foldmethod = "expr"
-vim.opt.foldexpr = "nvim_treesitter#foldexpr()"
-vim.opt.foldlevel = 99         -- Don't collapse everything when opening
-vim.opt.foldlevelstart = 99    -- Start with all folds open
-vim.opt.foldenable = true      -- Enable folding
-vim.opt.foldcolumn = "1"       -- "0" to hide, "1" to show thin fold column
-
 
 -- Helper Functions
 function GenTags()
@@ -29,10 +20,6 @@ function GenTags()
 		stderr_buffered = true,
 		shell = true,
 	})
-end
-function ResetFolds()
-	vim.cmd("normal! zE")
-	vim.cmd("edit")
 end
 
 -- Set leader key to space
