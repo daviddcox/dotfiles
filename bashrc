@@ -39,3 +39,4 @@ fde() {
   [[ -n "$name" ]] && docker exec -it "$name" /bin/bash
 }
 
+. "$HOME/.cargo/env"

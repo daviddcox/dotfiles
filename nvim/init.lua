@@ -13,21 +13,26 @@ vim.opt.undofile = true           -- Persistent undo
 vim.opt.termguicolors = true      -- Enable true color support
 vim.opt.path:append("**")
 
+-- Enable Tree-sitter based folds
+vim.opt.foldmethod = "expr"
+vim.opt.foldexpr = "nvim_treesitter#foldexpr()"
+vim.opt.foldlevel = 99         -- Don't collapse everything when opening
+vim.opt.foldlevelstart = 99    -- Start with all folds open
+vim.opt.foldenable = true      -- Enable folding
+vim.opt.foldcolumn = "1"       -- "0" to hide, "1" to show thin fold column
+
+
 -- Helper Functions
-function GrepSearch()
-	require("telescope.builtin").grep_string({ search = vim.fn.input("Grep > ") })
-end
-
-function ErrorSearch()
-	require('telescope.builtin').diagnostics({ bufnr = 0 })
-end
-
 function GenTags()
   vim.fn.jobstart("ctags -R -L <(git ls-files)", {
     stdout_buffered = true,
     stderr_buffered = true,
     shell = true,
   })
+end
+function ResetFolds()
+  vim.cmd("normal! zE")
+  vim.cmd("edit")
 end
 
 -- Set leader key to space
@@ -52,8 +57,12 @@ vim.keymap.set('n', '<leader>om', ':SessionSearch<CR>')
 vim.keymap.set('n', '<leader>pf', ':Telescope find_files<CR>')
 vim.keymap.set('n', '<C-p>', ':Telescope git_files<CR>')
 vim.keymap.set('n', '<leader>pb', ':Telescope buffers<CR>')
-vim.keymap.set('n', '<leader>pe', ErrorSearch)
-vim.keymap.set('n', '<leader>ps', GrepSearch)
+vim.keymap.set('n', '<leader>pe', function()
+	require('telescope.builtin').diagnostics({ bufnr = 0 })
+end)
+vim.keymap.set('n', '<leader>ps', function()
+	require("telescope.builtin").grep_string({ search = vim.fn.input("Grep > ") })
+end)
 
 -- Prettier on save
 vim.api.nvim_create_autocmd("BufWritePre", {
