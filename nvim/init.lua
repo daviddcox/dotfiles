@@ -7,7 +7,7 @@ vim.opt.autoindent = true         -- Auto-indent new lines
 vim.opt.smartindent = true        -- Smart indentation
 vim.opt.ignorecase = true         -- Case insensitive searching
 vim.opt.smartcase = true          -- Case-sensitive if uppercase letters are used
-vim.opt.cursorline = true         -- Highlight current line
+vim.opt.cursorline = false         -- Highlight current line
 vim.opt.wrap = true               -- Enable line wrapping
 vim.opt.undofile = true           -- Persistent undo
 vim.opt.termguicolors = true      -- Enable true color support
@@ -24,15 +24,15 @@ vim.opt.foldcolumn = "1"       -- "0" to hide, "1" to show thin fold column
 
 -- Helper Functions
 function GenTags()
-  vim.fn.jobstart("ctags -R -L <(git ls-files)", {
-    stdout_buffered = true,
-    stderr_buffered = true,
-    shell = true,
-  })
+	vim.fn.jobstart("ctags -R -L <(git ls-files)", {
+		stdout_buffered = true,
+		stderr_buffered = true,
+		shell = true,
+	})
 end
 function ResetFolds()
-  vim.cmd("normal! zE")
-  vim.cmd("edit")
+	vim.cmd("normal! zE")
+	vim.cmd("edit")
 end
 
 -- Set leader key to space
@@ -66,8 +66,8 @@ end)
 
 -- Prettier on save
 vim.api.nvim_create_autocmd("BufWritePre", {
-  pattern = { "*.js", "*.ts", "*.jsx", "*.tsx", "*.json", "*.css", "*.html" },
-  command = "Prettier",
+	pattern = { "*.js", "*.ts", "*.jsx", "*.tsx", "*.json", "*.css", "*.html" },
+	command = "Prettier",
 })
 
 -- Include lazy config

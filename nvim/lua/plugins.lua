@@ -1,5 +1,5 @@
 return {
-  { "preservim/nerdtree" },
+	{ "preservim/nerdtree" },
 	{ 'nvim-telescope/telescope.nvim', tag = '0.1.8' },
 	{
 		'rmagatti/auto-session',
@@ -10,46 +10,46 @@ return {
 		}
 	},
 	{
-    'nvim-lualine/lualine.nvim',
-    dependencies = { 'nvim-tree/nvim-web-devicons' },
+		'nvim-lualine/lualine.nvim',
+		dependencies = { 'nvim-tree/nvim-web-devicons' },
 		config = function() require('lualine').setup({
-				options = { theme = 'onedark' },
-			}) end,
+			options = { theme = 'onedark' },
+		}) end,
 	},
 	{
-    "williamboman/mason.nvim",
-    config = true
-  },
-  {
-    "williamboman/mason-lspconfig.nvim",
-    config = function()
-      require("mason").setup()
-      require("mason-lspconfig").setup({
-        ensure_installed = { "lua_ls", "pyright", "ts_ls" },
-      })
-    end
-  },
+		"williamboman/mason.nvim",
+		config = true
+	},
 	{
-    "neovim/nvim-lspconfig",
-    config = function()
-      local lspconfig = require("lspconfig")
-      lspconfig.pyright.setup({})
-      lspconfig.ts_ls.setup({})
-      lspconfig.lua_ls.setup({
-        settings = {
-          Lua = {
-            diagnostics = {
-              globals = { "vim" },
-            }
-          }
-        }
-      })
-    end
-  },
+		"williamboman/mason-lspconfig.nvim",
+		config = function()
+			require("mason").setup()
+			require("mason-lspconfig").setup({
+				ensure_installed = { "lua_ls", "pyright", "ts_ls" },
+			})
+		end
+	},
 	{
-    "ThePrimeagen/harpoon",
-    branch = "harpoon2",
-    dependencies = { "nvim-lua/plenary.nvim" },
+		"neovim/nvim-lspconfig",
+		config = function()
+			local lspconfig = require("lspconfig")
+			lspconfig.pyright.setup({})
+			lspconfig.ts_ls.setup({})
+			lspconfig.lua_ls.setup({
+				settings = {
+					Lua = {
+						diagnostics = {
+							globals = { "vim" },
+						}
+					}
+				}
+			})
+		end
+	},
+	{
+		"ThePrimeagen/harpoon",
+		branch = "harpoon2",
+		dependencies = { "nvim-lua/plenary.nvim" },
 		config = function()
 			local harpoon = require("harpoon")
 			harpoon:setup()
@@ -64,26 +64,26 @@ return {
 
 		end,
 	},
-  { "nvim-treesitter/nvim-treesitter", build = ":TSUpdate", config = function()
-      require("nvim-treesitter.configs").setup({
-          -- Ensure the Python and TypeScript parsers are installed
-          ensure_installed = { "python", "typescript", "lua", "markdown", "markdown_inline" },
-          highlight = {
-              enable = true,
-          },
-      })
-    end
-  },
-	{
-    'MeanderingProgrammer/render-markdown.nvim',
-    dependencies = { 'nvim-treesitter/nvim-treesitter' },
-    opts = {},
-	},
-	{ "prettier/vim-prettier", build = "npm install"},
-	{
-		"rebelot/kanagawa.nvim",
-		opts = {
-			transparent = true,
-		}
+	{ "nvim-treesitter/nvim-treesitter", build = ":TSUpdate", config = function()
+		require("nvim-treesitter.configs").setup({
+			-- Ensure the Python and TypeScript parsers are installed
+			ensure_installed = { "python", "typescript", "lua", "markdown", "markdown_inline" },
+			highlight = {
+				enable = true,
+			},
+		})
+	end
+},
+{
+	'MeanderingProgrammer/render-markdown.nvim',
+	dependencies = { 'nvim-treesitter/nvim-treesitter' },
+	opts = {},
+},
+{ "prettier/vim-prettier", build = "npm install"},
+{
+	"rebelot/kanagawa.nvim",
+	opts = {
+		transparent = true,
 	}
+}
 }
