@@ -25,7 +25,7 @@ return {
 		config = function()
 			require("mason").setup()
 			require("mason-lspconfig").setup({
-				ensure_installed = { "lua_ls", "pyright", "ts_ls" },
+				ensure_installed = { "lua_ls", "pyright", "ts_ls", "rust_analyzer" },
 			})
 		end
 	},
@@ -43,6 +43,14 @@ return {
 						}
 					}
 				}
+			})
+			lspconfig.rust_analyzer.setup({
+				settings = {
+					["rust-analyzer"] = {
+						cargo = { allFeatures = true },
+						check = { command = "clippy" },
+					},
+				},
 			})
 		end
 	},
@@ -67,7 +75,7 @@ return {
 	{ "nvim-treesitter/nvim-treesitter", build = ":TSUpdate", config = function()
 		require("nvim-treesitter.configs").setup({
 			-- Ensure the Python and TypeScript parsers are installed
-			ensure_installed = { "python", "typescript", "lua", "markdown", "markdown_inline" },
+			ensure_installed = { "rust", "python", "typescript", "lua", "markdown", "markdown_inline" },
 			highlight = {
 				enable = true,
 			},
@@ -85,5 +93,5 @@ return {
 	opts = {
 		transparent = true,
 	}
-}
+},
 }

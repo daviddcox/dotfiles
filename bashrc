@@ -5,6 +5,8 @@ export PATH=${PATH}:/p/xinu/bin
 export PATH="$HOME/.fzf/bin:$PATH"
 export PATH="$HOME/.npm-global/bin:$PATH"
 export PATH="$HOME/.local/bin:$PATH"
+export PATH="$PATH:/usr/local/bin"
+
 
 export MANPAGER='nvim +Man!'
 
@@ -19,7 +21,6 @@ alias fcd='cd "$(find . -type d | fzf)"'
 alias connect-404='nmcli connection up "Faith 404 - 5 GHz" passwd-file ~/.404_wifi.txt'
 
 alias on='source venv/bin/activate'
-alias vim='vimx'
 alias wezterm='flatpak run org.wezfurlong.wezterm'
 alias weather="$HOME/dotfiles/weather.sh"
 alias moon="$HOME/dotfiles/moon.sh"
