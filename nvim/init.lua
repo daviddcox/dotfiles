@@ -65,13 +65,6 @@ end)
 vim.keymap.set('n', '<leader>ps', function()
 	require("telescope.builtin").grep_string({ search = vim.fn.input("Grep > ") })
 end)
-vim.keymap.set('v', '<leader>sl', function()
-  -- Run each command in order
-  vim.cmd("'<,'>s/^/\\=len(getline('.'))/")
-  vim.cmd("normal! gv")
-  vim.cmd("'<,'>sort n")
-  vim.cmd("'<,'>s/\\d*//")
-end, { desc = "Sort lines by length" })
 
 -- Prettier on save
 vim.api.nvim_create_autocmd("BufWritePre", {
