@@ -1,2 +1,2 @@
 return
-{ 'vuciv/golf' }
+{ 'preservim/nerdtree' }
